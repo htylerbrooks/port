@@ -1,0 +1,28 @@
+{
+  "name": "express_example",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "tst",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vizzyy/express.git"
+  },
+  "keywords": [
+    "express",
+    "nodejs"
+  ],
+  "author": "bviz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Vizzyy/express/issues"
+  },
+  "homepage": "https://github.com/Vizzyy/express#readme",
+  "description": "",
+  "dependencies": {
+    "ejs": "^2.4.2",
+    "express": "^4.13.4"
+  }
+}
