@@ -4,19 +4,18 @@ var app = express();
 app.use(express.static(__dirname + '/public'));
 
 app.get('/', function(req, res) {
-	
+
 	app.engine('html', require('ejs').renderFile);
 	app.set('view engine', 'html');
-	
+
 	res.render('index', {
 		title : 'Home'
 	});
-	
+
 });
 
-
 app.post('/successful', function(req, res) {
-	
+
 	app.engine('html', require('ejs').renderFile);
 	app.set('view engine', 'html');
 
@@ -25,48 +24,24 @@ app.post('/successful', function(req, res) {
 	});
 });
 
-//app.get('/vote1', function (req, res) {
-//
-//	app.engine('html', require('ejs').renderFile);
-//	app.set('view engine', 'html');
-//	
-//	res.render('vote1', {
-//		title : 'Doofl'
-//	});
-//});
-//
-//app.post('/vote2', function (req, res) {
-//
-//	app.engine('html', require('ejs').renderFile);
-//	app.set('view engine', 'html');
-//	
-//	res.render('vote2', {
-//		title : 'Doofl'
-//	});
-//});
-//
-//app.post('/giveConfirm', function (req, res) {
-//
-//	app.engine('html', require('ejs').renderFile);
-//	app.set('view engine', 'html');
-//	
-//	res.render('giveConfirm', {
-//		title : 'giveConfirm'
-//	});
-//});
-//
-//app.post('/giveSuccess', function (req, res) {
-//
-//	app.engine('html', require('ejs').renderFile);
-//	app.set('view engine', 'html');
-//	
-//	res.render('giveSuccess', {
-//		title : 'giveSuccess'
-//	});
-//});
+var exec = require("child_process").exec;
+app.get('/onScript', function(req, res) {
+	exec("php views/onScript.php", function(error, stdout, stderr) {
+		res.send(stdout);
+	});
+	
+});
+
+var exec = require("child_process").exec;
+app.get('/offScript', function(req, res) {
+	exec("php views/offScript.php", function(error, stdout, stderr) {
+		res.send(stdout);
+	});
+	
+});
 
 var server = app.listen(8081, function() {
-	
+
 	var host = server.address().address
 	var port = server.address().port
 
